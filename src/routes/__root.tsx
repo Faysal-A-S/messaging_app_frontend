@@ -4,6 +4,11 @@ import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createRootRoute({
   component: RootComponent,
+  notFoundComponent: () => (
+    <div className="flex items-center justify-center min-h-screen text-white">
+      <h1 className="text-2xl font-semibold">404 | Page Not Found</h1>
+    </div>
+  ),
 });
 
 const queryClient = new QueryClient({

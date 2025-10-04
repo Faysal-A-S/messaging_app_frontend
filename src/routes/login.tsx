@@ -53,7 +53,7 @@ function RouteComponent() {
         </div>
         <div className="mt-3 flex justify-end text-white gap-2">
           Not registered?
-          <Link to="/login" className="underline">
+          <Link to="/register" className="underline">
             Register
           </Link>
         </div>
