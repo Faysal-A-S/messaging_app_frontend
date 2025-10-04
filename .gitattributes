@@ -1,0 +1,16 @@
+# Always use LF line endings, even on Windows
+* text eol=lf
+
+# Keep images, fonts, etc. untouched
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.mp4 binary
+*.mov binary
