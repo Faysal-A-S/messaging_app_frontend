@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
-import { Label } from '../ui/label';
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
-import { Link } from '@tanstack/react-router';
+import React, { useState } from "react";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
+import { Link } from "@tanstack/react-router";
+import type { LoginForm } from "@/api/auth.api";
 
-type LoginProps = {}
+type LoginProps = {
+  handleSubmit: (data: LoginForm) => void;
+};
 
-const Login:React.FC<LoginProps> = ({}) => {
-    const [formData, setFormData] = useState({ username: "", password: "" });
+const Login: React.FC<LoginProps> = ({ handleSubmit }) => {
+  const [formData, setFormData] = useState({ username: "", password: "" });
   return (
     <div className="min-h-screen w-full relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800 flex justify-center items-center">
       <div className="backdrop-blur-xl bg-white/5 rounded-3xl shadow-2xl border border-white/10 p-8 min-w-96">
@@ -52,7 +55,10 @@ const Login:React.FC<LoginProps> = ({}) => {
             />
           </div>
           <div className="mt-6 text-center">
-            <Button className="w-full py-3 px-4 bg-gradient-to-r from-emerald-700 to-teal-700 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-emerald-900/50 cursor-pointer">
+            <Button
+              onClick={() => handleSubmit(formData)}
+              className="w-full py-3 px-4 bg-gradient-to-r from-emerald-700 to-teal-700 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-emerald-900/50 cursor-pointer"
+            >
               Login
             </Button>
           </div>
@@ -65,7 +71,7 @@ const Login:React.FC<LoginProps> = ({}) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

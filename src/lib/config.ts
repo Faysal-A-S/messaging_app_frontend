@@ -8,13 +8,12 @@ function getConfig(): Config {
     case "localhost":
     case "127.0.0.1":
       return {
-        API_BASE_URL: "http://127.0.0.1:8000/api/users/register",
+        API_BASE_URL: "http://localhost:8080/api/",
       };
 
     default:
       return {
-        API_BASE_URL:
-          "http://leather-api-dev-alb-1256121811.ap-northeast-1.elb.amazonaws.com/api/v1",
+        API_BASE_URL: "http://localhost:8080/api/",
       };
   }
 }

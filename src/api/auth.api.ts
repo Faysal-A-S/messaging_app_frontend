@@ -16,8 +16,8 @@ type LoginResponse = {
     id: number;
   };
 };
-type LoginForm = {
-  email: string;
+export type LoginForm = {
+  username: string;
   password: string;
 };
 
@@ -33,7 +33,7 @@ export function useLogin() {
     { toastId: number | string }
   >({
     mutationFn: async (data) => {
-      const response = await api.post("/login", data);
+      const response = await api.post("users/login", data);
       return response.data;
     },
     onMutate: () => {
