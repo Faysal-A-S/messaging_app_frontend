@@ -1,6 +1,6 @@
 import { atomWithStorage } from "jotai/utils";
 
-type Auth = {
+export type Auth = {
   token: string;
   id: number;
   email: string;
