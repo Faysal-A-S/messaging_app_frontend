@@ -1,7 +1,17 @@
+import { getUserlist } from "@/api/user.api";
 import Contact from "@/components/molecules/Contact/Contact";
 import { Input } from "@/components/ui/input";
+import useDebounce from "@/hooks/useDebounce";
+
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 const AppSidebar = () => {
+  const [search, setSearch] = useState<string>("");
+  const debouncedSearch = useDebounce({ value: search });
+  const { data: users, isLoading } = useQuery(
+    getUserlist({ search: debouncedSearch })
+  );
   const contacts = [
     {
       id: 0,
@@ -49,6 +59,7 @@ const AppSidebar = () => {
       online: true,
     },
   ];
+
   return (
     <div className="text-center py-2 ">
       <div className="p-4">
@@ -58,9 +69,9 @@ const AppSidebar = () => {
         />
       </div>
       <div className="mt-2">
-        {
-            contacts.map((contact)=><Contact contact={contact}/>)
-        }
+        {contacts.map((contact) => (
+          <Contact contact={contact} key={contact.id} />
+        ))}
       </div>
     </div>
   );

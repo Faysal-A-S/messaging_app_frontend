@@ -15,7 +15,7 @@ function RouteComponent() {
     (data: LoginForm) => {
       login.mutate(data, {
         onSuccess: () => {
-          navigate({ to: "/home", replace: true });
+          navigate({ to: "/", replace: true });
         },
       });
     },
@@ -23,7 +23,7 @@ function RouteComponent() {
   );
   return (
     <>
-      <Login handleSubmit={handleSubmit}/>
+      <Login handleSubmit={handleSubmit} />
     </>
   );
 }
